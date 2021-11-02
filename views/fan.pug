@@ -1,15 +1,29 @@
 extends layout
 
 block content
-  h1= Search Results fan
-  p Sarath Arrepu 
-  button(type="button", class="btn btn-primary", onclick="update()") Press Me for the contents
-  |
-  div(id="target") Display
-  |
-  script. 
-    let client_count = 0;
-    function update() {
-      client_count = client_count + 1;
-      document.getElementById("target").innerHTML = `Value now ${client_count}`  ;
-      }
+  h1= title 
+  p sarath
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let fan = [
+                    {
+                        "Brand": "Usha",
+                        "price": 10,
+                        "color": "Green"
+                    },
+                    {
+                        "Brand": "sleepwell",
+                        "price": 20,
+                        "color": "Black"
+                    },
+                    {
+                        "Brand": "Pegion",
+                        "price": 30,
+                        "color": "White"
+                    },                   
+                ]
+            each v,index in fan 
+                div(class="col-sm-2") #{v.Brand}
+                div(class="col-sm-2") #{v.price}
+                div(class="col-sm-2") #{v.color}
